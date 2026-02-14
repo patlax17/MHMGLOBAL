@@ -28,7 +28,6 @@ MHMGLOBAL/
 ## Features Implemented
 
 ### Safety & Accessibility
-- ✅ Quick Exit button (desktop: single click, mobile: triple-tap)
 - ✅ Crisis support prominently displayed
 - ✅ Mobile sticky footer bar (Get Support, Donate, Trainings)
 - ✅ 7:1 minimum contrast ratio
