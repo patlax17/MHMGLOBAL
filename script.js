@@ -1,36 +1,6 @@
 // ============================================
-// MENTAL HEALTH MATTERS GLOBAL - MAIN SCRIPT
+// QUICK EXIT BUTTON - Removed per user request
 // ============================================
-
-// Quick Exit Functionality
-const quickExitBtn = document.getElementById('quickExit');
-let tapCount = 0;
-let tapTimer = null;
-
-function quickExit() {
-    window.location.replace('https://www.google.com');
-}
-
-// Desktop: Single click
-if (window.innerWidth > 768) {
-    quickExitBtn.addEventListener('click', quickExit);
-} else {
-    // Mobile: 3-tap trigger
-    quickExitBtn.addEventListener('click', () => {
-        tapCount++;
-        
-        if (tapCount === 1) {
-            tapTimer = setTimeout(() => {
-                tapCount = 0;
-            }, 2000);
-        }
-        
-        if (tapCount === 3) {
-            clearTimeout(tapTimer);
-            quickExit();
-        }
-    });
-}
 
 // Mobile Menu Toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -39,7 +9,7 @@ const nav = document.querySelector('.nav');
 if (mobileMenuToggle) {
     mobileMenuToggle.addEventListener('click', () => {
         nav.classList.toggle('active');
-        
+
         // Animate hamburger icon
         const spans = mobileMenuToggle.querySelectorAll('span');
         if (nav.classList.contains('active')) {
@@ -52,7 +22,7 @@ if (mobileMenuToggle) {
             spans[2].style.transform = 'none';
         }
     });
-    
+
     // Close menu when clicking nav link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
@@ -79,7 +49,7 @@ function animateCounter(element) {
     const duration = 2000;
     const increment = target / (duration / 16);
     let current = 0;
-    
+
     const updateCounter = () => {
         current += increment;
         if (current < target) {
@@ -89,7 +59,7 @@ function animateCounter(element) {
             element.textContent = target.toLocaleString();
         }
     };
-    
+
     updateCounter();
 }
 
@@ -135,7 +105,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Google Analytics 4 Placeholder
 window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'GA_MEASUREMENT_ID'); // Replace with actual GA4 ID
 
