@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Mental Health Matters Global</title>
+    <meta name="description"
+        content="Access crisis support, mental health toolkits, and wellness resources. If you're in immediate danger, call 988 or text HOME to 741741.">
+    <meta name="keywords"
+        content="mental health resources, crisis support, suicide prevention, mental health toolkits, wellness directory">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+
+<body>
+    <button id="quickExit" class="quick-exit" aria-label="Quick Exit">Quick Exit</button>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logo.png" alt="Mental Health Matters Global" class="logo">
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="who-we-are.html" class="nav-link">Who We Are</a>
+                <a href="leadership.html" class="nav-link">Leadership</a>
+                <a href="initiatives.html" class="nav-link">Initiatives</a>
+                <a href="trainings.html" class="nav-link">Trainings</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="impact.html" class="nav-link">Impact & Data</a>
+                <a href="resources.html" class="nav-link active">Resources</a>
+                <a href="get-involved.html" class="nav-link">Get Involved</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Crisis Notice -->
+        <section class="crisis-banner">
+            <div class="container">
+                <div class="crisis-content">
+                    <h2>⚠️ If You Are in Immediate Danger</h2>
+                    <p><strong>Call 988</strong> (Suicide & Crisis Lifeline) or <strong>Text HOME to 741741</strong>
+                        (Crisis Text Line)</p>
+                    <p class="crisis-note">This website is not emergency services. For immediate help, please use the
+                        resources above.</p>
+                    <p class="crisis-note">The Quick Exit button (top right) will immediately redirect you to Google.com
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-hero" style="padding-top: var(--spacing-md);">
+            <div class="container">
+                <h1>Mental Health Resources</h1>
+                <p class="page-subtitle">Tools, support, and information for your wellness journey.</p>
+            </div>
+        </section>
+
+        <!-- Crisis Resources -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Crisis Support</h2>
+                <div class="crisis-resources">
+                    <div class="resource-card">
+                        <h3>988 Suicide & Crisis Lifeline</h3>
+                        <p>24/7 free and confidential support for people in distress.</p>
+                        <a href="tel:988" class="btn btn-primary">Call 988</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Crisis Text Line</h3>
+                        <p>Text-based support available 24/7. Text HOME to connect with a counselor.</p>
+                        <a href="sms:741741&body=HOME" class="btn btn-primary">Text 741741</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>SAMHSA National Helpline</h3>
+                        <p>Treatment referral and information service (English/Spanish).</p>
+                        <a href="tel:1-800-662-4357" class="btn btn-primary">1-800-662-HELP</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Veterans Crisis Line</h3>
+                        <p>Support for veterans and their families.</p>
+                        <a href="tel:988" class="btn btn-primary">Press 1 after calling 988</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equity Toolkits -->
+        <section id="toolkits" class="content-section" style="background: #f8f9fa;">
+            <div class="container">
+                <h2>Equity Toolkits</h2>
+                <p class="text-center" style="color: var(--slate-gray); margin-bottom: var(--spacing-lg);">
+                    Evidence-based guides for mental health equity in your community or organization.</p>
+
+                <div class="toolkit-grid">
+                    <div class="toolkit-card">
+                        <div class="toolkit-icon">📋</div>
+                        <h3>De-escalation Guide</h3>
+                        <p>Practical strategies for de-escalating conflict and supporting individuals in crisis.
+                            Designed for community members, educators, and first responders.</p>
+                        <ul class="toolkit-features">
+                            <li>Trauma-informed communication techniques</li>
+                            <li>Safety planning frameworks</li>
+                            <li>Cultural considerations</li>
+                            <li>Real-world scenarios and responses</li>
+                        </ul>
+                        <button onclick="downloadToolkit('De-escalation Guide')"
+                            class="btn btn-outline btn-full">Download PDF</button>
+                    </div>
+
+                    <div class="toolkit-card">
+                        <div class="toolkit-icon">🎓</div>
+                        <h3>Educator Toolkit</h3>
+                        <p>Comprehensive resource for supporting student mental health in K-12 and higher education
+                            settings.</p>
+                        <ul class="toolkit-features">
+                            <li>Recognizing warning signs</li>
+                            <li>Classroom accommodation strategies</li>
+                            <li>Referral pathways and protocols</li>
+                            <li>Self-care for educators</li>
+                        </ul>
+                        <button onclick="downloadToolkit('Educator Toolkit')" class="btn btn-outline btn-full">Download
+                            PDF</button>
+                    </div>
+
+                    <div class="toolkit-card">
+                        <div class="toolkit-icon">💼</div>
+                        <h3>Workplace Wellness Guide</h3>
+                        <p>Build a psychologically safe workplace with this guide for HR professionals and
+                            organizational leaders.</p>
+                        <ul class="toolkit-features">
+                            <li>Mental health policy templates</li>
+                            <li>Accommodation best practices</li>
+                            <li>Stigma reduction strategies</li>
+                            <li>Employee assistance program design</li>
+                        </ul>
+                        <button onclick="downloadToolkit('Workplace Wellness Guide')"
+                            class="btn btn-outline btn-full">Download PDF</button>
+                    </div>
+                </div>
+
+                <div class="content-block text-center" style="margin-top: var(--spacing-lg);">
+                    <p style="color: var(--slate-gray); font-style: italic;">All toolkits require email registration.
+                        Downloads are free and you'll receive follow-up resources.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Wellness Directory -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Global Wellness Directory</h2>
+                <p class="text-center" style="color: var(--slate-gray); margin-bottom: var(--spacing-lg);">Culturally
+                    responsive mental health providers and community resources worldwide.</p>
+
+                <div class="directory-placeholder">
+                    <div class="integration-placeholder">
+                        <h3>Global Wellness Directory Placeholder</h3>
+                        <p>In production, this would be a searchable directory with:</p>
+                        <ul>
+                            <li>Filterable provider database (location, language, specialty, insurance)</li>
+                            <li>Community resource listings (healing circles, support groups)</li>
+                            <li>Cultural/faith-based mental health services</li>
+                            <li>Sliding scale and free service indicators</li>
+                            <li>User reviews and ratings (moderated)</li>
+                            <li>Direct booking integration where available</li>
+                        </ul>
+                        <p style="margin-top: 1rem; font-weight: 600;">Directory integration ready for deployment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Resources -->
+        <section class="content-section" style="background: #f8f9fa;">
+            <div class="container">
+                <h2>Additional Resources</h2>
+
+                <div class="resource-links">
+                    <div class="link-category">
+                        <h3>For Individuals</h3>
+                        <ul class="link-list">
+                            <li><a href="initiatives.html#circles">Find a Healing Circle →</a></li>
+                            <li><a href="events.html">Upcoming Wellness Events →</a></li>
+                            <li><a href="impact.html">Read Community Stories →</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="link-category">
+                        <h3>For Professionals</h3>
+                        <ul class="link-list">
+                            <li><a href="trainings.html">Professional Training Programs →</a></li>
+                            <li><a href="get-involved.html#volunteer">Become an MHM Envoy →</a></li>
+                            <li><a href="contact.html">Request Expert Consultation →</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="link-category">
+                        <h3>For Organizations</h3>
+                        <ul class="link-list">
+                            <li><a href="trainings.html">Request Corporate Training →</a></li>
+                            <li><a href="get-involved.html#sponsorship">Partnership Opportunities →</a></li>
+                            <li><a href="impact.html">Download Impact Reports →</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="assets/logo.png" alt="Mental Health Matters Global" class="footer-logo">
+                    <p class="footer-tagline">Advancing mental health equity through science and community.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="initiatives.html">Initiatives</a></li>
+                        <li><a href="trainings.html">Trainings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="get-involved.html">Donate</a></li>
+                        <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="resources.html">Crisis Support</a></li>
+                        <li><a href="resources.html#toolkits">Equity Toolkits</a></li>
+                        <li><a href="impact.html">Impact Reports</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mental Health Matters Global. All rights reserved.</p>
+                <p class="crisis-line">Crisis Support: Call 988 or Text HOME to 741741</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-footer-bar">
+        <a href="resources.html" class="mobile-footer-btn">Get Support</a>
+        <a href="get-involved.html#donate" class="mobile-footer-btn">Donate</a>
+        <a href="trainings.html" class="mobile-footer-btn">Trainings</a>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="forms.js"></script>
+</body>
+
+</html>

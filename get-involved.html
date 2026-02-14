@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved - Mental Health Matters Global</title>
+    <meta name="description"
+        content="Support MHM Global through donations, volunteering, or corporate sponsorship. Join the movement for mental health equity.">
+    <meta name="keywords"
+        content="donate mental health, volunteer mental health, nonprofit sponsorship, mental health philanthropy">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="forms.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+
+<body>
+    <button id="quickExit" class="quick-exit" aria-label="Quick Exit">Quick Exit</button>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logo.png" alt="Mental Health Matters Global" class="logo">
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="who-we-are.html" class="nav-link">Who We Are</a>
+                <a href="leadership.html" class="nav-link">Leadership</a>
+                <a href="initiatives.html" class="nav-link">Initiatives</a>
+                <a href="trainings.html" class="nav-link">Trainings</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="impact.html" class="nav-link">Impact & Data</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+                <a href="get-involved.html" class="nav-link active">Get Involved</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Get Involved</h1>
+                <p class="page-subtitle">Join the movement for healing justice and mental health equity.</p>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section id="donate" class="content-section">
+            <div class="container">
+                <div class="content-block text-center">
+                    <h2>Support Our Mission</h2>
+                    <p class="framework-intro">Your donation creates systemic change in mental health equity. Every
+                        contribution supports community-led healing and evidence-based programs.</p>
+                </div>
+
+                <div id="donationModule" class="donation-module">
+                    <h3>Make a Donation</h3>
+
+                    <div class="donation-toggle">
+                        <button class="toggle-btn" data-frequency="monthly">Monthly</button>
+                        <button class="toggle-btn active" data-frequency="one-time">One-Time</button>
+                    </div>
+
+                    <div class="donation-amounts">
+                        <button class="amount-btn" data-amount="25">
+                            <span class="amount-value">$25</span>
+                            <span class="amount-desc">Support a Healing Circle</span>
+                        </button>
+                        <button class="amount-btn" data-amount="100">
+                            <span class="amount-value">$100</span>
+                            <span class="amount-desc">Train an Envoy</span>
+                        </button>
+                        <button class="amount-btn" data-amount="500">
+                            <span class="amount-value">$500</span>
+                            <span class="amount-desc">Fund a Community Workshop</span>
+                        </button>
+                        <button class="amount-btn" data-amount="1000">
+                            <span class="amount-value">$1,000</span>
+                            <span class="amount-desc">Sponsor a Full Training</span>
+                        </button>
+                    </div>
+
+                    <div class="custom-amount">
+                        <input type="number" id="customAmount" placeholder="Or enter custom amount" min="1">
+                    </div>
+
+                    <div class="donor-options">
+                        <label>
+                            <input type="checkbox" id="coverFees" checked>
+                            <span>I'll cover the processing fees (helps us maximize impact)</span>
+                        </label>
+                    </div>
+
+                    <div class="payment-methods">
+                        <button class="payment-btn">💳 Card</button>
+                        <button class="payment-btn">🍎 Apple Pay</button>
+                        <button class="payment-btn">G Google Pay</button>
+                        <button class="payment-btn">Venmo</button>
+                    </div>
+
+                    <p style="text-align: center; font-size: 0.9rem; opacity: 0.9; margin-top: 1rem;">
+                        Secure payment processing • Tax-deductible • Instant receipt
+                    </p>
+                </div>
+
+                <div class="content-block text-center" style="margin-top: var(--spacing-lg);">
+                    <div class="integration-placeholder">
+                        <h3>Givebutter Integration Placeholder</h3>
+                        <p>In production, this would be a fully embedded Givebutter donation module with:</p>
+                        <ul>
+                            <li>Real payment processing (Stripe/PayPal)</li>
+                            <li>Automated tax receipts via email</li>
+                            <li>Donor CRM integration</li>
+                            <li>Recurring donation management</li>
+                            <li>Social sharing prompts post-donation</li>
+                            <li>Thank-you page with impact messaging</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Section -->
+        <section id="volunteer" class="content-section" style="background: #f8f9fa;">
+            <div class="container">
+                <div class="content-block text-center">
+                    <h2>Become an MHM Envoy</h2>
+                    <p class="framework-intro">Join our network of trained community leaders bringing mental health
+                        support to underserved populations.</p>
+                </div>
+
+                <div class="content-grid" style="grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+                    <div class="content-main">
+                        <h3>What is an MHM Envoy?</h3>
+                        <p>MHM Envoys are trained volunteers who serve as mental health champions in their communities.
+                            Through comprehensive training and ongoing support, Envoys facilitate healing circles,
+                            provide peer support, and connect community members to resources.</p>
+
+                        <h4 style="margin-top: var(--spacing-md);">Envoy Roles</h4>
+                        <div class="values-grid">
+                            <div class="value-card">
+                                <h4>Healing Circle Facilitator</h4>
+                                <p>Lead peer support groups in your community.</p>
+                            </div>
+                            <div class="value-card">
+                                <h4>SOS Responder</h4>
+                                <p>Provide de-escalation support during crises.</p>
+                            </div>
+                            <div class="value-card">
+                                <h4>Community Educator</h4>
+                                <p>Deliver mental health awareness workshops.</p>
+                            </div>
+                            <div class="value-card">
+                                <h4>Resource Navigator</h4>
+                                <p>Connect individuals to clinical services.</p>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: var(--spacing-md);">Training & Support</h4>
+                        <ul class="training-outcomes">
+                            <li>40-hour comprehensive training program</li>
+                            <li>Certification in trauma-informed care</li>
+                            <li>Ongoing supervision and peer support</li>
+                            <li>Access to clinical consultation</li>
+                            <li>Professional development opportunities</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-sidebar" style="order: 2;">
+                        <div class="sidebar-card cta-card">
+                            <h3>Apply to Become an Envoy</h3>
+                            <p>Applications are reviewed on a rolling basis. Training cohorts begin quarterly.</p>
+                            <form id="volunteerForm" class="mhm-form"
+                                style="background: transparent; padding: 0; box-shadow: none;">
+                                <div class="form-group">
+                                    <label style="color: white;">Name *</label>
+                                    <input type="text" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color: white;">Email *</label>
+                                    <input type="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color: white;">Phone</label>
+                                    <input type="tel" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label style="color: white;">Why do you want to become an MHM Envoy? *</label>
+                                    <textarea name="motivation" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full">Submit Application</button>
+                            </form>
+                            <div id="formSuccess" class="form-success"
+                                style="display: none; background: white; margin-top: 1rem;">
+                                <div class="success-icon">✓</div>
+                                <h3>Application Received!</h3>
+                                <p>We'll review your application and contact you at <strong id="confirmEmail"></strong>
+                                    within 5-7 business days.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsorship Section -->
+        <section id="sponsorship" class="content-section">
+            <div class="container">
+                <div class="content-block text-center">
+                    <h2>Corporate Sponsorship & Partnerships</h2>
+                    <p class="framework-intro">Partner with MHM Global to demonstrate your organization's commitment to
+                        mental health equity and community well-being.</p>
+                </div>
+
+                <div class="sponsorship-tiers">
+                    <div class="tier-card">
+                        <div class="tier-header" style="background: #CD7F32;">
+                            <h3>Bronze Partner</h3>
+                            <p class="tier-amount">$5,000 - $9,999</p>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-benefits">
+                                <li>Logo on website and annual report</li>
+                                <li>Recognition at community events</li>
+                                <li>Quarterly impact updates</li>
+                                <li>Employee volunteer opportunities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tier-card">
+                        <div class="tier-header" style="background: #C0C0C0;">
+                            <h3>Silver Partner</h3>
+                            <p class="tier-amount">$10,000 - $24,999</p>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-benefits">
+                                <li>All Bronze benefits</li>
+                                <li>Featured sponsor at Global Wellness Summit</li>
+                                <li>Customized employee training workshop</li>
+                                <li>Social media recognition</li>
+                                <li>Invitation to exclusive donor events</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tier-card featured">
+                        <div class="tier-header" style="background: #FFD700;">
+                            <h3>Gold Partner</h3>
+                            <p class="tier-amount">$25,000+</p>
+                        </div>
+                        <div class="tier-body">
+                            <ul class="tier-benefits">
+                                <li>All Silver benefits</li>
+                                <li>Named program sponsorship opportunity</li>
+                                <li>Comprehensive employee mental health training series</li>
+                                <li>Speaking opportunity at Summit</li>
+                                <li>Quarterly strategy meetings with leadership</li>
+                                <li>Custom impact reporting</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tier-card">
+                        <div class="tier-header" style="background: var(--navy-blue);">
+                            <h3>Custom Partnership</h3>
+                            <p class="tier-amount">Let's Design Together</p>
+                        </div>
+                        <div class="tier-body">
+                            <p style="text-align: center; color: var(--slate-gray);">We welcome creative partnerships
+                                tailored to your organization's goals and values.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block text-center" style="margin-top: var(--spacing-lg);">
+                    <button onclick="alert('Sponsorship deck download placeholder')" class="btn btn-primary">Request
+                        Sponsorship Deck</button>
+                    <a href="contact.html" class="btn btn-outline" style="margin-left: 1rem;">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="assets/logo.png" alt="Mental Health Matters Global" class="footer-logo">
+                    <p class="footer-tagline">Advancing mental health equity through science and community.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="initiatives.html">Initiatives</a></li>
+                        <li><a href="trainings.html">Trainings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="get-involved.html">Donate</a></li>
+                        <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="resources.html">Crisis Support</a></li>
+                        <li><a href="resources.html#toolkits">Equity Toolkits</a></li>
+                        <li><a href="impact.html">Impact Reports</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mental Health Matters Global. All rights reserved.</p>
+                <p class="crisis-line">Crisis Support: Call 988 or Text HOME to 741741</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-footer-bar">
+        <a href="resources.html" class="mobile-footer-btn">Get Support</a>
+        <a href="get-involved.html#donate" class="mobile-footer-btn">Donate</a>
+        <a href="trainings.html" class="mobile-footer-btn">Trainings</a>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="forms.js"></script>
+</body>
+
+</html>
