@@ -4,12 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Initiatives - Mental Health Matters Global</title>
+    <title>What We Do - Mental Health Matters Global</title>
     <meta name="description"
-        content="Explore MHM Global's community-led programs: SOS Project, World Mental Health Initiative, and Community Healing Circles.">
+        content="Explore MHM Global's 6 key initiatives — from global mental health missions and community conversations to the SOS Project, Training Institute, Creative Arts, and Healing Justice.">
     <meta name="keywords"
-        content="violence prevention program, community trauma recovery, healing circles, mental health programs">
+        content="mental health initiatives, SOS Project, community mental health, healing justice, creative arts therapy, mental health training">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="What We Do — Mental Health Matters Global">
+    <meta property="og:description"
+        content="Six transformative programs advancing mental health equity for underserved communities worldwide.">
+    <meta property="og:image" content="assets/logo.png">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,245 +27,885 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pages.css">
     <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <style>
+        /* ============================================
+           WHAT WE DO — DARK MODE OVERRIDES & PREMIUM STYLES
+           ============================================ */
+
+        /* Page-level dark canvas */
+        .wwd-body {
+            background: #0a0c10;
+        }
+
+        /* ── Hero ── */
+        .wwd-hero {
+            position: relative;
+            background: #0a0c10;
+            padding: 7rem 0 5rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .wwd-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 50% at 50% 0%, rgba(135, 169, 107, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(0, 31, 63, 0.5) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 30% at 80% 70%, rgba(204, 119, 34, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .wwd-hero-eyebrow {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sage-green);
+            border: 1px solid rgba(135, 169, 107, 0.35);
+            padding: 0.45rem 1.1rem;
+            border-radius: 100px;
+            margin-bottom: 1.75rem;
+        }
+
+        .wwd-hero h1 {
+            font-family: var(--font-headline);
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.12;
+            max-width: 820px;
+            margin: 0 auto 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .wwd-hero h1 em {
+            font-style: normal;
+            color: var(--sage-green);
+        }
+
+        .wwd-hero-sub {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.62);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        .wwd-hero-scroll {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 40px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ── Section Label ── */
+        .wwd-section-label {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .wwd-section-label span {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--sage-green);
+        }
+
+        .wwd-section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ── Initiatives Section ── */
+        .wwd-initiatives-section {
+            background: #0a0c10;
+            padding: 5rem 0 6rem;
+        }
+
+        /* ── Initiative Cards Grid ── */
+        .wwd-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5px;
+            border: 1.5px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* Card base */
+        .wwd-card {
+            position: relative;
+            background: #111318;
+            padding: 2.75rem 2.25rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            transition: background 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: default;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(32px);
+        }
+
+        .wwd-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wwd-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--card-accent, var(--sage-green)), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .wwd-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% -20%, var(--card-glow, rgba(135, 169, 107, 0.07)) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .wwd-card:hover {
+            background: #161b22;
+            z-index: 1;
+        }
+
+        .wwd-card:hover::before,
+        .wwd-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Color themes per card */
+        .wwd-card:nth-child(1) {
+            --card-accent: #87A96B;
+            --card-glow: rgba(135, 169, 107, 0.08);
+            --card-num-color: rgba(135, 169, 107, 0.18);
+        }
+
+        .wwd-card:nth-child(2) {
+            --card-accent: #5b9bd5;
+            --card-glow: rgba(91, 155, 213, 0.08);
+            --card-num-color: rgba(91, 155, 213, 0.18);
+        }
+
+        .wwd-card:nth-child(3) {
+            --card-accent: #CC7722;
+            --card-glow: rgba(204, 119, 34, 0.08);
+            --card-num-color: rgba(204, 119, 34, 0.18);
+        }
+
+        .wwd-card:nth-child(4) {
+            --card-accent: #9b7fd4;
+            --card-glow: rgba(155, 127, 212, 0.08);
+            --card-num-color: rgba(155, 127, 212, 0.18);
+        }
+
+        .wwd-card:nth-child(5) {
+            --card-accent: #e8736a;
+            --card-glow: rgba(232, 115, 106, 0.08);
+            --card-num-color: rgba(232, 115, 106, 0.18);
+        }
+
+        .wwd-card:nth-child(6) {
+            --card-accent: #4db8a0;
+            --card-glow: rgba(77, 184, 160, 0.08);
+            --card-num-color: rgba(77, 184, 160, 0.18);
+        }
+
+        /* Stagger animation delays */
+        .wwd-card:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        .wwd-card:nth-child(2) {
+            transition-delay: 0.12s;
+        }
+
+        .wwd-card:nth-child(3) {
+            transition-delay: 0.19s;
+        }
+
+        .wwd-card:nth-child(4) {
+            transition-delay: 0.26s;
+        }
+
+        .wwd-card:nth-child(5) {
+            transition-delay: 0.33s;
+        }
+
+        .wwd-card:nth-child(6) {
+            transition-delay: 0.40s;
+        }
+
+        /* Card: large background number */
+        .wwd-card-number {
+            position: absolute;
+            top: -0.5rem;
+            right: 1rem;
+            font-family: var(--font-headline);
+            font-size: 7rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--card-num-color, rgba(135, 169, 107, 0.15));
+            pointer-events: none;
+            user-select: none;
+            transition: color 0.4s ease;
+        }
+
+        /* Card: icon badge */
+        .wwd-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+            color: var(--card-accent, var(--sage-green));
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .wwd-card:hover .wwd-card-icon {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--card-accent, var(--sage-green));
+        }
+
+        .wwd-card-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Card: initiative tag */
+        .wwd-card-tag {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--card-accent, var(--sage-green));
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Card: title */
+        .wwd-card-title {
+            font-family: var(--font-headline);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.3;
+            margin-bottom: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Card: description */
+        .wwd-card-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.52);
+            line-height: 1.8;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        }
+
+        /* Card: bottom arrow link */
+        .wwd-card-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.75rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--card-accent, var(--sage-green));
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .wwd-card:hover .wwd-card-cta {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wwd-card-cta svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .wwd-card:hover .wwd-card-cta svg {
+            transform: translateX(4px);
+        }
+
+        /* ── Mission Statement Banner ── */
+        .wwd-mission-banner {
+            background: #0d0f14;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wwd-mission-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(135, 169, 107, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .wwd-mission-quote {
+            font-family: var(--font-headline);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 820px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.55;
+            font-style: italic;
+        }
+
+        .wwd-mission-quote strong {
+            color: var(--sage-green);
+            font-style: normal;
+        }
+
+        .wwd-mission-attr {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ── Support Our Mission CTA ── */
+        .wwd-cta-section {
+            background: #0a0c10;
+            padding: 7rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wwd-cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 70% at 50% 100%, rgba(0, 31, 63, 0.6) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 10% 0%, rgba(135, 169, 107, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .wwd-cta-inner {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .wwd-cta-eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--warm-ochre);
+            margin-bottom: 1.5rem;
+        }
+
+        .wwd-cta-title {
+            font-family: var(--font-headline);
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .wwd-cta-title span {
+            color: var(--sage-green);
+        }
+
+        .wwd-cta-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.8;
+            margin-bottom: 2.75rem;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .wwd-cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-donate {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--sage-green);
+            color: #ffffff;
+            padding: 1rem 2.25rem;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-donate:hover {
+            background: #72946e;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(135, 169, 107, 0.35);
+        }
+
+        .btn-donate svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn-learn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.75);
+            padding: 1rem 2.25rem;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-learn:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Impact tickers strip */
+        .wwd-tickers {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .wwd-ticker {
+            text-align: center;
+        }
+
+        .wwd-ticker-num {
+            font-family: var(--font-headline);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .wwd-ticker-label {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.38);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ── Responsive breakpoints ── */
+        @media (max-width: 1024px) {
+            .wwd-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .wwd-grid {
+                grid-template-columns: 1fr;
+                border-radius: 12px;
+            }
+
+            .wwd-card {
+                padding: 2rem 1.75rem;
+            }
+
+            .wwd-hero {
+                padding: 5rem 0 3.5rem;
+            }
+
+            .wwd-cta-section {
+                padding: 5rem 0;
+            }
+
+            .wwd-tickers {
+                gap: 2rem;
+            }
+        }
+
+        /* Transition override for animations */
+        .wwd-card {
+            transition:
+                background 0.4s ease,
+                opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+    </style>
 </head>
 
-<body>
+<body class="wwd-body">
 
-    <header class="header">
+    <!-- Header -->
+    <header class="header" style="background: #0a0c10; border-bottom: 1px solid rgba(255,255,255,0.06);">
         <div class="container">
             <a href="index.html" class="logo-link">
                 <img src="assets/logo.png" alt="Mental Health Matters Global" class="logo">
             </a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" style="--span-bg: rgba(255,255,255,0.85);">
+                <span style="background: rgba(255,255,255,0.85);"></span>
+                <span style="background: rgba(255,255,255,0.85);"></span>
+                <span style="background: rgba(255,255,255,0.85);"></span>
             </button>
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="who-we-are.html" class="nav-link">Who We Are</a>
-                <a href="leadership.html" class="nav-link">Leadership</a>
-                <a href="initiatives.html" class="nav-link active">Initiatives</a>
-                <a href="trainings.html" class="nav-link">Trainings</a>
-                <a href="events.html" class="nav-link">Events</a>
-                <a href="impact.html" class="nav-link">Impact & Data</a>
-                <a href="resources.html" class="nav-link">Resources</a>
-                <a href="get-involved.html" class="nav-link">Get Involved</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+            <nav class="nav" style="--nav-bg: #0a0c10;">
+                <a href="index.html" class="nav-link" style="color: rgba(255,255,255,0.7);">Home</a>
+                <a href="who-we-are.html" class="nav-link" style="color: rgba(255,255,255,0.7);">Who We Are</a>
+                <a href="leadership.html" class="nav-link" style="color: rgba(255,255,255,0.7);">Leadership</a>
+                <a href="initiatives.html" class="nav-link active" style="color: #ffffff;">Initiatives</a>
+                <a href="trainings.html" class="nav-link" style="color: rgba(255,255,255,0.7);">Trainings</a>
+                <a href="events.html" class="nav-link" style="color: rgba(255,255,255,0.7);">Events</a>
+                <a href="impact.html" class="nav-link" style="color: rgba(255,255,255,0.7);">Impact &amp; Data</a>
+                <a href="resources.html" class="nav-link" style="color: rgba(255,255,255,0.7);">Resources</a>
+                <a href="get-involved.html" class="nav-link" style="color: rgba(255,255,255,0.7);">Get Involved</a>
+                <a href="contact.html" class="nav-link" style="color: rgba(255,255,255,0.7);">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="page-hero">
+
+        <!-- ══════════════════════════════════
+             HERO
+        ══════════════════════════════════ -->
+        <section class="wwd-hero">
             <div class="container">
-                <h1>Our Initiatives</h1>
-                <p class="page-subtitle">Community-led programs addressing the root causes of mental health inequity.
+                <div class="wwd-hero-eyebrow">Mental Health Matters Global</div>
+                <h1>Six Initiatives.<br><em>One Mission.</em></h1>
+                <p class="wwd-hero-sub">
+                    From global wellness missions to community conversations, violence prevention,
+                    training, creative arts, and healing justice — every program is built around
+                    the communities who need it most.
                 </p>
+                <div class="wwd-hero-scroll">
+                    <span class="scroll-line"></span>
+                    <span>Explore our work</span>
+                    <span class="scroll-line"></span>
+                </div>
             </div>
         </section>
 
-        <section class="content-section">
+        <!-- ══════════════════════════════════
+             INITIATIVES GRID
+        ══════════════════════════════════ -->
+        <section class="wwd-initiatives-section" id="initiatives">
             <div class="container">
-                <div class="initiatives-grid">
-                    <div class="initiative-card">
-                        <div class="initiative-image"></div>
-                        <div class="initiative-content">
-                            <h3>SOS Project</h3>
-                            <p>Community violence de-escalation and trauma recovery through peer-led healing circles.
-                            </p>
-                            <a href="#sos" class="btn btn-outline">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="initiative-card">
-                        <div class="initiative-image"
-                            style="background: linear-gradient(135deg, var(--sage-green) 0%, var(--warm-ochre) 100%);">
-                        </div>
-                        <div class="initiative-content">
-                            <h3>World Mental Health Initiative</h3>
-                            <p>Global diaspora wellness and culturally responsive mental health support.</p>
-                            <a href="#wmhi" class="btn btn-outline">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="initiative-card">
-                        <div class="initiative-image"
-                            style="background: linear-gradient(135deg, var(--warm-ochre) 0%, var(--navy-blue) 100%);">
-                        </div>
-                        <div class="initiative-content">
-                            <h3>Community Healing Circles</h3>
-                            <p>Peer-led support spaces for collective healing and community resilience.</p>
-                            <a href="#circles" class="btn btn-outline">Learn More</a>
-                        </div>
-                    </div>
+                <div class="wwd-section-label">
+                    <span>Our Key Initiatives</span>
                 </div>
+
+                <div class="wwd-grid" id="wwd-grid">
+
+                    <!-- Card 1: Global Mental Health Initiative -->
+                    <article class="wwd-card" id="global-initiative" aria-label="The Global Mental Health Initiative">
+                        <span class="wwd-card-number" aria-hidden="true">01</span>
+                        <div class="wwd-card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg>
+                        </div>
+                        <div class="wwd-card-tag">Global Reach</div>
+                        <h2 class="wwd-card-title">The Global Mental Health Initiative</h2>
+                        <p class="wwd-card-desc">
+                            Promotes mental health wellness for vulnerable and underserved communities globally,
+                            advancing awareness and access through targeted wellness missions around the world.
+                        </p>
+                        <div class="wwd-card-cta" aria-hidden="true">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: Community Mental Health Initiative -->
+                    <article class="wwd-card" id="community-initiative"
+                        aria-label="The Community Mental Health Initiative">
+                        <span class="wwd-card-number" aria-hidden="true">02</span>
+                        <div class="wwd-card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <div class="wwd-card-tag">Community</div>
+                        <h2 class="wwd-card-title">The Community Mental Health Initiative</h2>
+                        <p class="wwd-card-desc">
+                            Hosts curated community conversations designed to de-stigmatize and normalize mental health,
+                            educate, and provide screenings, trainings, and other wellness resources.
+                        </p>
+                        <div class="wwd-card-cta" aria-hidden="true">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: SOS Project Initiative -->
+                    <article class="wwd-card" id="sos-initiative" aria-label="The SOS Project Initiative">
+                        <span class="wwd-card-number" aria-hidden="true">03</span>
+                        <div class="wwd-card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </div>
+                        <div class="wwd-card-tag">Violence Prevention</div>
+                        <h2 class="wwd-card-title">The SOS Project Initiative</h2>
+                        <p class="wwd-card-desc">
+                            Works collaboratively with community violence prevention programs to provide resources,
+                            trainings, and summits that highlight the impact of interpersonal gun violence and offer
+                            healing through trauma recovery practices.
+                        </p>
+                        <div class="wwd-card-cta" aria-hidden="true">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </div>
+                    </article>
+
+                    <!-- Card 4: Training Institute -->
+                    <article class="wwd-card" id="training-institute"
+                        aria-label="The Mental Health Matters Global Training Institute">
+                        <span class="wwd-card-number" aria-hidden="true">04</span>
+                        <div class="wwd-card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            </svg>
+                        </div>
+                        <div class="wwd-card-tag">Education &amp; Training</div>
+                        <h2 class="wwd-card-title">The MHM Global Training Institute</h2>
+                        <p class="wwd-card-desc">
+                            Instructs and facilitates various mental health training courses and workshops, equipping
+                            individuals, organizations, and community leaders with the tools they need to promote
+                            wellness.
+                        </p>
+                        <div class="wwd-card-cta" aria-hidden="true">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </div>
+                    </article>
+
+                    <!-- Card 5: Creative Arts Initiative -->
+                    <article class="wwd-card" id="creative-arts-initiative" aria-label="The Creative Arts Initiative">
+                        <span class="wwd-card-number" aria-hidden="true">05</span>
+                        <div class="wwd-card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path
+                                    d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
+                            </svg>
+                        </div>
+                        <div class="wwd-card-tag">Arts &amp; Culture</div>
+                        <h2 class="wwd-card-title">The Creative Arts Initiative</h2>
+                        <p class="wwd-card-desc">
+                            Raises awareness and educates on mental health topics through film, visual arts, narrative
+                            storytelling, and music. Also provides programming that explores healing through the arts as
+                            a therapeutic pathway.
+                        </p>
+                        <div class="wwd-card-cta" aria-hidden="true">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </div>
+                    </article>
+
+                    <!-- Card 6: Healing Justice Initiative -->
+                    <article class="wwd-card" id="healing-justice-initiative" aria-label="Healing Justice Initiative">
+                        <span class="wwd-card-number" aria-hidden="true">06</span>
+                        <div class="wwd-card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </div>
+                        <div class="wwd-card-tag">Restorative Justice</div>
+                        <h2 class="wwd-card-title">Healing Justice Initiative</h2>
+                        <p class="wwd-card-desc">
+                            Provides spaces of healing and support for individuals impacted by the criminal-legal system
+                            through Restorative Justice Practices and trainings, fostering accountability, repair, and
+                            community wholeness.
+                        </p>
+                        <div class="wwd-card-cta" aria-hidden="true">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </div>
+                    </article>
+
+                </div><!-- /wwd-grid -->
             </div>
         </section>
 
-        <!-- SOS Project Detail -->
-        <section id="sos" class="content-section" style="background: #f8f9fa;">
+        <!-- ══════════════════════════════════
+             MISSION BANNER
+        ══════════════════════════════════ -->
+        <section class="wwd-mission-banner">
             <div class="container">
-                <div class="content-block">
-                    <h2>SOS Project: Responding to Community Violence</h2>
-                    <p class="framework-intro">The SOS Project addresses community violence as a public health crisis,
-                        providing immediate de-escalation support and long-term trauma recovery through community-led
-                        interventions.</p>
-                </div>
-
-                <div class="content-block">
-                    <h3>The Context</h3>
-                    <p>Community violence creates cascading mental health impacts that extend far beyond direct victims.
-                        Witnesses, families, and entire neighborhoods experience trauma that often goes unaddressed by
-                        traditional mental health systems.</p>
-                    <p>The SOS Project recognizes that communities most impacted by violence hold essential wisdom about
-                        healing and safety. Our model trains community members as first responders who can provide
-                        culturally grounded support in moments of crisis.</p>
-                </div>
-
-                <div class="content-block">
-                    <h3>How It Works</h3>
-                    <div class="process-steps">
-                        <div class="process-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>De-escalation Training</h4>
-                                <p>Community members receive evidence-based training in conflict de-escalation,
-                                    trauma-informed communication, and crisis response. Trained "SOS Envoys" become
-                                    trusted resources within their neighborhoods.</p>
-                            </div>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Healing Circles</h4>
-                                <p>Following violent incidents, SOS Envoys facilitate healing circles that bring
-                                    together those impacted. These peer-led spaces provide immediate emotional support
-                                    and connection in the aftermath of trauma.</p>
-                            </div>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Long-term Support</h4>
-                                <p>Participants are connected to ongoing mental health resources, including clinical
-                                    services, peer support groups, and community wellness programs. We track outcomes
-                                    and provide sustained follow-up.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-block">
-                    <h3>Community Voices</h3>
-                    <div class="testimonials">
-                        <div class="testimonial">
-                            <p class="testimonial-text">"The SOS circle gave me a space to process what happened without
-                                judgment. For the first time, I didn't feel alone in my grief."</p>
-                            <p class="testimonial-author">— Community Member, Brooklyn</p>
-                        </div>
-                        <div class="testimonial">
-                            <p class="testimonial-text">"Being trained as an SOS Envoy changed how I show up for my
-                                community. I now have tools to help my neighbors in their darkest moments."</p>
-                            <p class="testimonial-author">— SOS Envoy, Bronx</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-block text-center">
-                    <h3>Support the SOS Project</h3>
-                    <p>Your donation funds SOS Envoy training, healing circle facilitation, and ongoing community
-                        support.</p>
-                    <a href="get-involved.html#donate" class="btn btn-primary">Support an SOS Circle</a>
-                </div>
+                <p class="wwd-mission-quote">
+                    "We believe mental health is a human right — and that healing happens
+                    when <strong>science meets community</strong> and <strong>justice meets care.</strong>"
+                </p>
+                <p class="wwd-mission-attr">— Mental Health Matters Global</p>
             </div>
         </section>
 
-        <!-- WMHI Detail -->
-        <section id="wmhi" class="content-section">
+        <!-- ══════════════════════════════════
+             SUPPORT OUR MISSION CTA
+        ══════════════════════════════════ -->
+        <section class="wwd-cta-section" id="support-mission" aria-labelledby="cta-heading">
             <div class="container">
-                <div class="content-block">
-                    <h2>World Mental Health Initiative (WMHI)</h2>
-                    <p class="framework-intro">WMHI advances mental health equity for global diaspora communities
-                        through culturally responsive programs and international partnerships.</p>
-                </div>
-
-                <div class="content-block">
-                    <h3>Our Global Approach</h3>
-                    <p>Mental health challenges are shaped by cultural context, migration experiences, and systemic
-                        barriers that vary across communities. WMHI develops programs tailored to the specific needs of
-                        diaspora populations, honoring diverse healing traditions while providing evidence-based
-                        support.</p>
-                    <p>We partner with community organizations, faith leaders, and cultural institutions to ensure our
-                        programs are accessible, trusted, and effective.</p>
-                </div>
-
-                <div class="content-block">
-                    <h3>Global Reach</h3>
-                    <div class="map-placeholder"
-                        style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sage-green) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
-                        Interactive Global Initiative Map
+                <div class="wwd-cta-inner">
+                    <span class="wwd-cta-eyebrow">Make an Impact Today</span>
+                    <h2 class="wwd-cta-title" id="cta-heading">
+                        Support Our<br><span>Mission</span>
+                    </h2>
+                    <p class="wwd-cta-desc">
+                        Every dollar funds community wellness missions, violence prevention summits,
+                        healing spaces, and training programs for those who need it most.
+                        Your generosity is the engine behind our work.
+                    </p>
+                    <div class="wwd-cta-buttons">
+                        <a href="get-involved.html#donate" class="btn-donate" id="donate-now-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            Donate Now
+                        </a>
+                        <a href="get-involved.html" class="btn-learn" id="get-involved-btn">
+                            Get Involved
+                        </a>
                     </div>
-                </div>
 
-                <div class="content-block text-center">
-                    <h3>Partner With Us</h3>
-                    <p>We welcome partnerships with organizations serving diaspora communities worldwide.</p>
-                    <a href="contact.html" class="btn btn-primary">Learn More</a>
+                    <!-- Impact numbers strip -->
+                    <div class="wwd-tickers">
+                        <div class="wwd-ticker">
+                            <div class="wwd-ticker-num" data-target="12500">0</div>
+                            <div class="wwd-ticker-label">Lives Impacted</div>
+                        </div>
+                        <div class="wwd-ticker">
+                            <div class="wwd-ticker-num" data-target="847">0</div>
+                            <div class="wwd-ticker-label">Envoys Trained</div>
+                        </div>
+                        <div class="wwd-ticker">
+                            <div class="wwd-ticker-num" data-target="156">0</div>
+                            <div class="wwd-ticker-label">Communities Served</div>
+                        </div>
+                        <div class="wwd-ticker">
+                            <div class="wwd-ticker-num" data-target="6">0</div>
+                            <div class="wwd-ticker-label">Key Initiatives</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Healing Circles Detail -->
-        <section id="circles" class="content-section" style="background: #f8f9fa;">
-            <div class="container">
-                <div class="content-block">
-                    <h2>Community Healing Circles</h2>
-                    <p class="framework-intro">Peer-led spaces for collective healing, mutual support, and community
-                        resilience.</p>
-                </div>
-
-                <div class="content-block">
-                    <h3>The Peer-Led Model</h3>
-                    <p>Community Healing Circles are facilitated by trained peers who have lived experience with mental
-                        health challenges. This model recognizes that healing happens in community and that those who
-                        have walked similar paths are uniquely positioned to offer support.</p>
-                    <p>Circles provide a confidential, non-judgmental space for participants to share their experiences,
-                        learn coping strategies, and build connections with others who understand their journey.</p>
-                </div>
-
-                <div class="content-block">
-                    <h3>Circle Topics</h3>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <h4>Grief & Loss</h4>
-                            <p>Processing loss and finding pathways forward together.</p>
-                        </div>
-                        <div class="value-card">
-                            <h4>Anxiety & Depression</h4>
-                            <p>Sharing strategies for managing symptoms and building resilience.</p>
-                        </div>
-                        <div class="value-card">
-                            <h4>Trauma Recovery</h4>
-                            <p>Healing from traumatic experiences in community.</p>
-                        </div>
-                        <div class="value-card">
-                            <h4>Caregiver Support</h4>
-                            <p>Mutual support for those caring for loved ones.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-block text-center">
-                    <h3>Join a Healing Circle</h3>
-                    <p>Circles meet weekly in communities across the region. All are welcome.</p>
-                    <a href="#" class="btn btn-primary"
-                        onclick="alert('Circle registration form placeholder'); return false;">Find a Circle Near
-                        You</a>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer" style="background: #060709; border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -298,6 +946,7 @@
         </div>
     </footer>
 
+    <!-- Mobile Sticky Footer Bar -->
     <div class="mobile-footer-bar">
         <a href="resources.html" class="mobile-footer-btn">Get Support</a>
         <a href="get-involved.html#donate" class="mobile-footer-btn">Donate</a>
@@ -305,6 +954,55 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script>
+        // ── Mobile nav background override ──
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.querySelector('.nav');
+            if (nav) {
+                nav.style.background = '#0a0c10';
+            }
+        });
+
+        // ── Scroll-triggered card reveal (IntersectionObserver) ──
+        const cards = document.querySelectorAll('.wwd-card');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        cards.forEach(card => cardObserver.observe(card));
+
+        // ── Animated counters ──
+        const tickers = document.querySelectorAll('.wwd-ticker-num');
+        const tickerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target, 10);
+                    const duration = 1800;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const update = () => {
+                        current = Math.min(current + step, target);
+                        el.textContent = Math.floor(current).toLocaleString() + (target >= 1000 ? '+' : '');
+                        if (current < target) requestAnimationFrame(update);
+                    };
+
+                    requestAnimationFrame(update);
+                    tickerObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        tickers.forEach(t => tickerObserver.observe(t));
+    </script>
+
 </body>
 
 </html>
