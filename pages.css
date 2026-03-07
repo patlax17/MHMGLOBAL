@@ -101,10 +101,9 @@
 }
 
 .framework-pillar {
-    display: grid;
-    grid-template-columns: 60px 1fr;
+    display: flex;
     gap: var(--spacing-md);
-    align-items: start;
+    align-items: flex-start;
 }
 
 .pillar-number {
@@ -113,10 +112,25 @@
     font-weight: 700;
     color: var(--sage-green);
     opacity: 0.6;
+    flex-shrink: 0;
+    min-width: 48px;
+    line-height: 1.2;
+}
+
+.framework-pillar-content {
+    flex: 1;
+    min-width: 0;
 }
 
 .framework-pillar h4 {
     margin-top: 0;
+    margin-bottom: var(--spacing-xs);
+}
+
+.framework-pillar p {
+    margin: 0;
+    color: var(--slate-gray);
+    line-height: 1.8;
 }
 
 /* Governance List */
